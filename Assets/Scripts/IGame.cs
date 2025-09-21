@@ -1,4 +1,4 @@
-﻿interface IGame 
+﻿public interface IGame 
 { 
 	/// <summary>
 	/// Submit a word on behalf of a user. A word is accepted if its letters are 
