@@ -15,10 +15,10 @@ namespace Data
         public string word;
         public int score;
 
-        public GameScore(string wordIn, int scoreIn)
+        public GameScore(string wordIn)
         {
             word = wordIn;
-            score = scoreIn;
+            score = wordIn.Length;
         }
     }
 }

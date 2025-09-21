@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "WordGame/Config")]
@@ -15,6 +16,20 @@ public class GameConfig : ScriptableObject
         }
     }
 
+    private int _totalCharacters = -1;
+
+    public int TotalCharacters
+    {
+        get
+        {
+            if (_totalCharacters != -1) return _totalCharacters;
+            var character = Resources.Load<TextAsset>(characterDataFile);
+            _totalCharacters = character.text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
+            return _totalCharacters;
+        }
+    }
+
+    public string characterDataFile = "characters";
     public string dataFile = "words";
     public string cacheDataFile = "words_cache";
     public string defaultString = "-";

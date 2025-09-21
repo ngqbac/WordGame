@@ -39,9 +39,9 @@ public class WordGame : IGame
 		if (!WordSignatureUtils.CanBuildWord(signature, _letterPool)) return;
 
 		_usedWords.Add(word);
-		for (var i = 0; i < 26; i++) _letterPool[i] -= signature[i];
+		// for (var i = 0; i < GameConfig.Instance.TotalCharacters; i++) _letterPool[i] -= signature[i];
 
-		_highScores.Add(new GameScore(word, word.Length));
+		_highScores.Add(new GameScore(word));
 		_highScores = _highScores
 			.OrderByDescending(s => s.score)
 			.ThenBy(s => _usedWords.ToList().IndexOf(s.word))

@@ -51,7 +51,7 @@ namespace Data
                 signature = WordSignatureUtils.GetSignature(w)
             }).ToList();
             Debug.Log($"{entries.Count} entries found");
-
+            
             SaveToJson(entries);
         }
 
