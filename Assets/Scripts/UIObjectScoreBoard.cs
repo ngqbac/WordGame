@@ -1,35 +1,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using ArcherGame.Game3.Helper;
-using UnityEngine;
+using OrganicBeing;
 
-public class UIObjectScoreBoard : MonoBehaviour
+public class UIObjectScoreBoard : MonoOrganic
 {
-    private bool _initialized;
-    
     private List<UIObjectScore> _scores;
 
-    public void Initialize()
+    public void UpdateScoreBoard(IGame game) => WhenReady(() =>
     {
-        _scores = GetComponentsInChildren<UIObjectScore>().ToList();
-        _initialized = true;
-    }
-
-    public void UpdateScoreBoard(IGame game)
-    {
-        if (!_initialized) Initialize();
         ItemListHelper.For(_scores).WithCount(GameConfig.Instance.scoreEntries).WithConfiguration((item, index) =>
         {
             item.SetData(game.GetScoreAtPosition(index), game.GetWordEntryAtPosition(index));
         }).Adjust();
-    }
+    });
 
-    public void ResetScoreBoard()
+    public void ResetScoreBoard() => WhenReady(() =>
     {
-        if (!_initialized) Initialize();
         ItemListHelper.For(_scores).WithCount(GameConfig.Instance.scoreEntries).WithConfiguration((item, _) =>
         {
             item.SetDefault();
         }).Adjust();
+    });
+
+    protected override void OnGrow()
+    {
+        _scores = GetComponentsInChildren<UIObjectScore>().ToList();
     }
 }

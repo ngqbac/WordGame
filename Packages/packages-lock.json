@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.bacnq.organicbeing": {
+      "version": "https://github.com/ngqbac/OrganicBeing.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "30684f859cf7a1a18dc1a340df4abba3c2d197eb"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
