@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ArcherGame.Game3.Helper;
-using OrganicBeing;
+using OrganicBeing.Integration;
 
 public class UIObjectScoreBoard : MonoOrganic
 {
