@@ -1,0 +1,46 @@
+You have 1 day from now to complete and then email back to HR team who has been cc’d in.
+
+
+The task is to implement a word game - it is very similar to scrabble:
+The player should be given a random set of base characters a to z, e.g. a r e a l l y l o n g  w o r d . 
+The aim of the game is to make as many words out of the given letters as possible, with each letter scoring one point. 
+Each character of the random set of base character can be used only once. A list of valid words can be found in Resources/words
+
+For example, when starting with the available characters a r e a l l y l o n g w o r d:
+
+the players uses the GUI to enter one word at a time:
+
+example:
+1st ”no" is an acceptable submission, with score 2
+2nd ”glow" is an acceptable submission, with score 4
+3rd “wolg” or ”golw” are not valid words.
+4th ”blend" is not an acceptable submission - we do not have a b
+5th ”slly" is not an acceptable submission - is not in the valid words list.
+6th ”really" is an acceptable submission with score 6
+7th ”ally" is an acceptable but because it is submitted after "really" it is not, as there are not enough l characters for both words
+8th ”adder" is not an acceptable submission as we only have 1 d
+
+The game should maintain a list of the top ten highest-scoring submissions (word and score).
+The player can continue to insert words as many times as he likes. Pressing the reset button, resets the full game. Generating a new list of available characters and cleaning the score board.
+
+Attached is a Unity project containing a basic UI for the game.  You need to implement the IGame interface 
+in your own C# class and switch to using it in the GameUI class.
+
+If any of the instructions are unclear, make a reasonable assumption and document it with a comment.
+
+
+If you don’t have enough time to complete the task in time, just return your work in progress.  
+If you finish the task early, return your solution ahead of time.
+Please return your answer by email to HR, by attaching a .zip file (or sending download link). 
+Please note zip is the only acceptable format.
+Your implementation should be production quality and include comments.  
+
+
+
+TIP: the list of words is really long. 
+
+
+Best of Luck!
+
+from given letter -> filter out possible word from data list
+from word submit -> check it available -> update score -> mark letter used -> maybe filter out possible word left?
